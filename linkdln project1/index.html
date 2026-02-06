@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weather + Travel Insights</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">☁️</div>
+        <div>
+          <h1>Weather Forecast</h1>
+         
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="unitsBtn" class="btn ghost" title="Toggle units">°C</button>
+        
+      </div>
+    </header>
+
+    <section class="searchCard card">
+      <div class="searchRow">
+        <div class="searchBox">
+          <input id="cityInput" type="text" placeholder="Search city (e.g., Colombo, London, Tokyo)..." autocomplete="off" />
+          <div id="autocomplete" class="autocomplete hidden"></div>
+        </div>
+        <button id="searchBtn" class="btn primary">Search</button>
+      </div>
+
+      <div class="favoritesRow">
+        <div class="favoritesTitle">Favorites</div>
+        <div id="favorites" class="favoritesChips"></div>
+      </div>
+    </section>
+
+    <main class="grid">
+      <section class="card hero" id="heroCard">
+        <div class="heroLeft">
+          <div class="place">
+            <h2 id="placeName">—</h2>
+            <p id="placeMeta" class="muted">Search for a city</p>
+          </div>
+
+          <div class="now">
+            <div class="iconWrap" id="nowIcon"></div>
+            <div class="tempWrap">
+              <div class="tempLine">
+                <span id="nowTemp" class="temp">—</span>
+                <span id="nowUnits" class="units">°C</span>
+              </div>
+              <div id="nowDesc" class="desc">—</div>
+              <div class="mini">
+                <span id="feelsLike">Feels like —</span>
+                <span class="dot">•</span>
+                <span id="humidity">Humidity —</span>
+                <span class="dot">•</span>
+                <span id="wind">Wind —</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="heroRight">
+          <div class="stat">
+            <div class="label">Sunrise</div>
+            <div id="sunrise" class="value">—</div>
+          </div>
+          <div class="stat">
+            <div class="label">Sunset</div>
+            <div id="sunset" class="value">—</div>
+          </div>
+          <div class="stat">
+            <div class="label">Visibility</div>
+            <div id="visibility" class="value">—</div>
+          </div>
+          <div class="stat">
+            <div class="label">Pressure</div>
+            <div id="pressure" class="value">—</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="forecastCard">
+        <div class="cardHeader">
+          <h3>5-Day Forecast</h3>
+          <p class="muted">Daily summary (based on 3-hour forecast)</p>
+        </div>
+        <div id="forecast" class="forecast"></div>
+      </section>
+
+      <section class="card" id="insightsCard">
+        <div class="cardHeader">
+          <h3>Travel Insights</h3>
+          <p class="muted">Weather-aware tips + best time to visit</p>
+        </div>
+
+        <div class="insights">
+          <div class="insightBlock">
+            <div class="insightTitle">Right now</div>
+            <ul id="tipsNow" class="bullets"></ul>
+          </div>
+
+          <div class="insightBlock">
+            <div class="insightTitle">Best time to visit (next 5 days)</div>
+            <div id="bestTime" class="bestTime">—</div>
+          </div>
+
+          <div class="insightBlock">
+            <div class="insightTitle">Suggested activities</div>
+            <div id="activities" class="pillGrid"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="errorCard">
+        <div class="cardHeader">
+          <h3>Notes</h3>
+        </div>
+        <div id="errors" class="errors muted">Add your OpenWeatherMap API key in <code>app.js</code>.</div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span class="muted">Powered by OpenWeatherMap</span>
+      
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
